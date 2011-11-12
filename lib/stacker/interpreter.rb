@@ -13,6 +13,7 @@ module Stacker class Interpreter
     when 'ADD'      then stack << stack.pop + stack.pop
     when 'DIVIDE'   then a = stack.pop; b = stack.pop; stack << b / a
     when 'DROP'     then stack.pop
+    when 'DUP'      then stack << stack.last
     when 'MOD'      then a = stack.pop; b = stack.pop; stack << b % a
     when 'MULTIPLY' then stack << stack.pop * stack.pop
     when 'SWAP'     then a = stack.pop; b = stack.pop; stack << a; stack << b

@@ -265,15 +265,15 @@ describe "Stacker::Interpreter" do
   #   interpreter.stack.must_equal([-1])
   # end
 
-  # it "implements DUP command" do
-  #   execute %w[
-  #     1
-  #     2
-  #     DUP
-  #   ]
+  it "implements DUP command" do
+    execute %w[
+      1
+      2
+      DUP
+    ]
 
-  #   interpreter.stack.must_equal([1,2,2])
-  # end
+    interpreter.stack.must_equal([1,2,2])
+  end
 
   it "implements SWAP command" do
     execute %w[
