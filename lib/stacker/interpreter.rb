@@ -21,8 +21,10 @@ module Stacker class Interpreter
     when 'SUBTRACT' then a = @stack.pop; b = @stack.pop; @stack << b - a
     when 'SWAP'     then a = @stack.pop; b = @stack.pop; @stack << a; @stack << b
     when 'THEN'
-      if_false, _, if_true, _, cond = @stack.pop, @stack.pop, @stack.pop, @stack.pop, @stack.pop
-      @stack << (cond == :true ? if_true : if_false)
+      if_false, if_true = [], []
+      if_false.unshift @stack.pop until @stack.last == 'ELSE'; @stack.pop
+      if_true.unshift  @stack.pop until @stack.last == 'IF';   @stack.pop
+      @stack += (@stack.pop == :true ? if_true : if_false)
     else                 @stack << convict
     end
   end
