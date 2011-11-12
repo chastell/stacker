@@ -11,6 +11,7 @@ module Stacker class Interpreter
     when '<'        then stack << (stack.pop > stack.pop).to_s.to_sym
     when '>'        then stack << (stack.pop < stack.pop).to_s.to_sym
     when 'ADD'      then stack << stack.pop + stack.pop
+    when 'MOD'      then a = stack.pop; b = stack.pop; stack << b % a
     when 'MULTIPLY' then stack << stack.pop * stack.pop
     else                 stack << convict
     end
