@@ -20,13 +20,13 @@ describe "Stacker::Interpreter" do
     interpreter.stack.must_equal([30])
   end
 
-  # it "implements the < command" do
-  #   interpreter.execute("3")
-  #   interpreter.execute("10")
-  #   interpreter.execute("<")
+  it "implements the < command" do
+    interpreter.execute("3")
+    interpreter.execute("10")
+    interpreter.execute("<")
 
-  #   interpreter.stack.must_equal([:true])
-  # end
+    interpreter.stack.must_equal([:true])
+  end
 
   # it "implements the > command" do
   #   interpreter.execute("3")

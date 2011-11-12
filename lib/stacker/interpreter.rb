@@ -1,6 +1,8 @@
 module Stacker class Interpreter
   def execute convict
     case convict
+    when '<'
+      stack << (stack.pop > stack.pop).to_s.to_sym
     when 'ADD'
       stack << stack.pop + stack.pop
     when 'MULTIPLY'
