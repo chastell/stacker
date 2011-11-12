@@ -255,15 +255,15 @@ describe "Stacker::Interpreter" do
   #   interpreter.stack.must_equal([400])
   # end
 
-  # it "implements SUBTRACT command" do
-  #   execute %w[
-  #     1
-  #     2
-  #     SUBTRACT
-  #   ]
+  it "implements SUBTRACT command" do
+    execute %w[
+      1
+      2
+      SUBTRACT
+    ]
 
-  #   interpreter.stack.must_equal([-1])
-  # end
+    interpreter.stack.must_equal([-1])
+  end
 
   it "implements DUP command" do
     execute %w[

@@ -16,6 +16,7 @@ module Stacker class Interpreter
     when 'DUP'      then stack << stack.last
     when 'MOD'      then a = stack.pop; b = stack.pop; stack << b % a
     when 'MULTIPLY' then stack << stack.pop * stack.pop
+    when 'SUBTRACT' then a = stack.pop; b = stack.pop; stack << b - a
     when 'SWAP'     then a = stack.pop; b = stack.pop; stack << a; stack << b
     else                 stack << convict
     end
