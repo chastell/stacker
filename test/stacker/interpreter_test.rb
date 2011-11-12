@@ -28,13 +28,13 @@ describe "Stacker::Interpreter" do
     interpreter.stack.must_equal([:true])
   end
 
-  # it "implements the > command" do
-  #   interpreter.execute("3")
-  #   interpreter.execute("10")
-  #   interpreter.execute(">")
+  it "implements the > command" do
+    interpreter.execute("3")
+    interpreter.execute("10")
+    interpreter.execute(">")
 
-  #   interpreter.stack.must_equal([:false])
-  # end
+    interpreter.stack.must_equal([:false])
+  end
 
   # it "implements the IF command" do
   #   execute %w[
