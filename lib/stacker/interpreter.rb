@@ -19,6 +19,9 @@ module Stacker class Interpreter
     when 'MULTIPLY' then stack << stack.pop * stack.pop
     when 'SUBTRACT' then a = stack.pop; b = stack.pop; stack << b - a
     when 'SWAP'     then a = stack.pop; b = stack.pop; stack << a; stack << b
+    when 'THEN'
+      if_false, _, if_true, _, cond = stack.pop, stack.pop, stack.pop, stack.pop, stack.pop
+      stack << (cond == :true ? if_true : if_false)
     else                 stack << convict
     end
   end
