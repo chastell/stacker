@@ -4,13 +4,13 @@ describe "Stacker::Interpreter" do
 
   let(:interpreter) { Stacker::Interpreter.new }
 
-  # it "implements the ADD command" do
-  #   interpreter.execute("2")
-  #   interpreter.execute("3")
-  #   interpreter.execute("ADD")
+  it "implements the ADD command" do
+    interpreter.execute("2")
+    interpreter.execute("3")
+    interpreter.execute("ADD")
 
-  #   interpreter.stack.must_equal([5])
-  # end
+    interpreter.stack.must_equal([5])
+  end
 
   # it "implements the MULTIPLY command" do
   #   interpreter.execute("3")
