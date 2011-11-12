@@ -11,31 +11,31 @@ describe "Stacker::Interpreter" do
 
     interpreter.stack.must_equal([5])
   end
-  
+
   it "implements the MULTIPLY command" do
     interpreter.execute("3")
     interpreter.execute("10")
     interpreter.execute("MULTIPLY")
-    
+
     interpreter.stack.must_equal([30])
   end
-  
+
   it "implements the < command" do
     interpreter.execute("3")
     interpreter.execute("10")
     interpreter.execute("<")
-    
+
     interpreter.stack.must_equal([:true])
   end
-  
+
   it "implements the > command" do
     interpreter.execute("3")
     interpreter.execute("10")
     interpreter.execute(">")
-    
+
     interpreter.stack.must_equal([:false])
   end
-  
+
   it "implements the IF command" do
     execute %w[
       :true
@@ -50,12 +50,12 @@ describe "Stacker::Interpreter" do
       5
       MULTIPLY
     ]
-    
+
     interpreter.stack.must_equal([3, 10])
   end
-  
+
   it "implements the IF command in nesting" do
-    execute %w[ 
+    execute %w[
        :true
        IF
        :false
@@ -79,7 +79,7 @@ describe "Stacker::Interpreter" do
 
     interpreter.stack.must_equal([2,3,7])
   end
-  
+
   it "implements the IF command in another 2-level nesting" do
     execute %w[
       :false
@@ -123,10 +123,10 @@ describe "Stacker::Interpreter" do
       14
       15
       ]
-    
+
     interpreter.stack.must_equal([7,8,9,12,13,14,15])
   end
-  
+
   it "implements the IF command in 3-level nesting" do
     execute %w[
       :true
@@ -218,7 +218,7 @@ describe "Stacker::Interpreter" do
 
     interpreter.stack.must_equal([24])
   end
-  
+
   it "implements IF inside of TIMES command" do
     execute %w[
       5
@@ -261,17 +261,17 @@ describe "Stacker::Interpreter" do
       2
       SUBTRACT
     ]
-    
+
     interpreter.stack.must_equal([-1])
   end
-  
+
   it "implements DUP command" do
     execute %w[
       1
       2
       DUP
     ]
-    
+
     interpreter.stack.must_equal([1,2,2])
   end
 
@@ -281,18 +281,18 @@ describe "Stacker::Interpreter" do
       2
       SWAP
     ]
-    
+
     interpreter.stack.must_equal([2,1])
   end
-  
+
   it "implements DROP" do
     execute %w[
       1
       2
       DROP
     ]
-    
-    interpreter.stack.must_equal([1]) 
+
+    interpreter.stack.must_equal([1])
   end
 
   it "implements DIVIDE" do
@@ -301,10 +301,10 @@ describe "Stacker::Interpreter" do
       2
       DIVIDE
       ]
-      
+
     interpreter.stack.must_equal([3])
   end
-  
+
   it "implements MOD" do
     execute %w[
       4
@@ -314,11 +314,11 @@ describe "Stacker::Interpreter" do
       3
       MOD
     ]
-    
+
     interpreter.stack.must_equal([1,0])
   end
   def execute(commands)
     commands.each { |c| interpreter.execute(c) }
   end
-  
+
 end
