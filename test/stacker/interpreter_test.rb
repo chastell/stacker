@@ -12,13 +12,13 @@ describe "Stacker::Interpreter" do
     interpreter.stack.must_equal([5])
   end
 
-  # it "implements the MULTIPLY command" do
-  #   interpreter.execute("3")
-  #   interpreter.execute("10")
-  #   interpreter.execute("MULTIPLY")
+  it "implements the MULTIPLY command" do
+    interpreter.execute("3")
+    interpreter.execute("10")
+    interpreter.execute("MULTIPLY")
 
-  #   interpreter.stack.must_equal([30])
-  # end
+    interpreter.stack.must_equal([30])
+  end
 
   # it "implements the < command" do
   #   interpreter.execute("3")

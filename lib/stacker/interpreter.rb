@@ -3,6 +3,8 @@ module Stacker class Interpreter
     case convict
     when 'ADD'
       stack << stack.pop + stack.pop
+    when 'MULTIPLY'
+      stack << stack.pop * stack.pop
     else
       stack << convict.to_i
     end
