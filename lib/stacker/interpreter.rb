@@ -8,6 +8,7 @@ module Stacker class Interpreter
   def execute convict
     case convict
     when /^\d+$/    then stack << convict.to_i
+    when ':true'    then stack << :true
     when '<'        then stack << (stack.pop > stack.pop).to_s.to_sym
     when '>'        then stack << (stack.pop < stack.pop).to_s.to_sym
     when 'ADD'      then stack << stack.pop + stack.pop
